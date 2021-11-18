@@ -1,0 +1,40 @@
+// To reuse styles on rules (components)
+@mixin btn($bg-color: #e2e2e2) {
+  // the value after the colon means the default value, son in cases when we pass the mixin without arguments it will yield that value
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  padding: $base-padding $base-padding * 2;
+  border-radius: $base-border-radius;
+  background-color: $bg-color; // Since both .btn and .btn-outlined have a background-color propery, we can set it as an argument of the mixin btn(), so, in this case, btn(orange) will yield background-color: orange;
+}
+
+.btn {
+  @include btn;
+}
+
+@each $key, $val in $colors {
+  .btn-#{$key} {
+    @include btn($val);
+    // background-color: $val; We can omit this value because of the argument passed on the btn() mixin
+    &:hover {
+      background-color: lighten($val, 9);
+    }
+  }
+  .btn-outlined-#{$key} {
+    @include btn(#fff);
+    border: $base-border-thickness solid $val;
+    &:hover {
+      background-color: $val;
+    }
+  }
+  .btn-complement-#{$key} {
+    @include btn($val);
+    color: light-comp($val);
+    &:hover {
+      color: $val;
+      background-color: light-comp($val);
+    }
+  }
+}

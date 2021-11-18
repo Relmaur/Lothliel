@@ -1,0 +1,30 @@
+
+%flex-layout { // To note: it is very likely that we're not going to use this class in the HTML, because we only created it to extend it to other rules to avoid repeating ourselves (less code is better, rememeber?). This is why we added turned it into a placeholder rule, by remopving the dot and adding the % sign. This way it does not get compiled on the destination css file (index.css).
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.navbar {
+    @extend %flex-layout;
+    padding: $base-padding $base-padding * 2;
+    box-shadow: $base-box-shadow;
+
+    .site-title{
+        font-size: $font-size-lg;
+    }
+
+    .container { // this rule will ONLY apply to container INSIDE navbars
+        @extend %flex-layout;
+    }
+}
+
+@each $key, $val in $colors {
+    .navbar-#{$key} {
+        @extend .navbar;
+        background-color: $val;
+    }
+}

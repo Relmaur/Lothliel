@@ -1,0 +1,58 @@
+// Variables
+
+// Theme Colors
+$primary: #678983;
+$secondary: #181d31;
+$error: #ff5f7e;
+$info: #fbd148;
+
+// Color Palette
+// To illustrate Maps
+$colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "error": $error,
+  "info": $info,
+  "blue": #89b5af,
+  "red": #a9333a,
+  "yellow": #e0b525,
+  "green": #b2ea70,
+  "orange": #e5890a,
+  "purple": #b000b9,
+  "gray": lightgray,
+  "black": black,
+  "white": white,
+);
+
+.test-btn {
+  background-color: map-get($colors, "purple");
+}
+
+// @debug map-get($colors, "purple");
+// @debug map-has-key($colors, "secondary");
+// @debug map-remove($colors, "primary");
+// @debug map-merge(
+//   $colors,
+//   (
+//     "pink": #e9a6a6,
+//   )
+// );
+
+// Spacing
+$base-padding: 0.75rem;
+$base-margin: 0.75rem;
+
+// Borders
+$base-border-thickness: 1px;
+$base-border-radius: 20px;
+
+// Box-shadow
+$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+
+// font-sizes
+$base-font-size: 1rem;
+$font-size-sm: $base-font-size * 0.75;
+$font-size-md: $base-font-size;
+$font-size-lg: $base-font-size * 1.5;
+$font-size-xl: $base-font-size * 2;
+$font-size-xxl: $base-font-size * 3;

@@ -1,0 +1,57 @@
+// This iterates through the $colors map, located on the _variables partial
+
+@each $key, $val in $colors {
+  // for each $key and $val on the $colors map, create a rule named .text-key{}. For isntance, for the first three iterations will yield: .text-primary {}, .text-secondary {}, .text-error {}
+  .text-#{$key} {
+    color: $val;
+  }
+  .bg-#{$key} {
+    background-color: $val;
+  }
+
+  .text-hover-#{$key} {
+    &:hover {
+      color: $val;
+    }
+  }
+
+  // This conditional fixes the issue where there are rules created such as this: .text-white-light {}, or .text-black-dark {} since they're -so to speak- repetitive, they actually don´t do anything, because both the mix(white, color, n) and mix(black, color, n) mix the color on the second argument with shades (at n percent) of white and black respectively.
+
+  @if ($val != black and $val != white) {
+    // These ones here will iterate from 1 to 9 for each of the $key iterations above. For instance, for each .text-key {} it will generate 9 other rules; the first three would look like: text-primary-light-1 {}, text-primary-light-2, text-primary-light-3 {}... So on and so forth. 9 rules for each of the rules above. index.css looking pretty damn hughe already! heh.
+
+    // light variations
+    @for $i from 1 through 9 {
+      .text-#{$key}-light-#{$i} {
+        color: mix(white, $val, $i * 10);
+      }
+      .bg-#{$key}-light-#{$i} {
+        background-color: mix(white, $val, $i * 10);
+      }
+
+      // for hover colors (notice we're only using the light and dark variations of the colors.
+      .text-hover-#{$key}-light-#{$i} {
+        &:hover {
+          color: mix(white, $val, $i * 10);
+        }
+      }
+    }
+
+    // dark variations
+    @for $i from 1 through 9 {
+      .text-#{$key}-dark-#{$i} {
+        color: mix(black, $val, $i * 10);
+      }
+      .bg-#{$key}-dark-#{$i} {
+        background-color: mix(black, $val, $i * 10);
+      }
+
+      // for hover colors (notice we're only using the light and dark variations of the colors.
+      .text-hover-#{$key}-dark-#{$i} {
+        &:hover {
+          color: mix(black, $val, $i * 10);
+        }
+      }
+    }
+  }
+}
