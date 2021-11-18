@@ -24,7 +24,7 @@ npm install gulp-purgecss --save-dev
 
 For you to make changes to the library without actually affecting it, you need to create a new folder (sass in this example) and a new entry file inside of it, say index.scss...
 
-Then, for it to be watched instead of the index.scss that is originally on the project files (lothiel folder), in gulpfile.js instead of lothliel, you gotta watch the sass folder you recently created. In the below code -which is the included gulpfile.js- just replace ^^lothliel^^ for ^^sass^^, like so:
+Then, for it to be watched instead of the index.scss that is originally on the project files (lothliel folder), in gulpfile.js instead of lothliel, you gotta watch the sass folder you recently created. In the below code -which is the included gulpfile.js- just replace ^^lothliel^^ for ^^sass^^, like so:
 
 ```javascript
 
