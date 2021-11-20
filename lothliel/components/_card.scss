@@ -4,7 +4,7 @@
   // To illustrate nesting
   display: block;
   padding: $base-padding;
-  border: $base-border-thickness solid #ddd;
+  border: $base-border-thickness solid rgb(228, 228, 228);
   box-shadow: $base-box-shadow;
   border-radius: math.div($base-border-radius, 4);
 
