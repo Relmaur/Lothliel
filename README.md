@@ -28,7 +28,7 @@ In case files package.json/package-dev.json are present; the thing that needs to
 npm install
 ```
 
-This way all dependencies will get fetched from the package.json file.
+This way all dependencies will get fetched and installed from the package.json file.
 
 ... Do not worry, the gupfile.js already has it included.
 
