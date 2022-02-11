@@ -5,7 +5,7 @@ A SASS library project
 First off you want to copy the lothliel folder and gulpfile.js into your project, and then you've got to run:
 
 ```bash
-npm init
+npm install
 ```
 
 this creates a package.json so you can install further dependencies, for the gulp dependency to work you gotta install it by running:
