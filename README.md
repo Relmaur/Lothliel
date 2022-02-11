@@ -2,10 +2,12 @@
 
 A SASS library project
 
+In case there is no package.json/package-dev.json files do the following:
+
 First off you want to copy the lothliel folder and gulpfile.js into your project, and then you've got to run:
 
 ```bash
-npm install
+npm init
 ```
 
 this creates a package.json so you can install further dependencies, for the gulp dependency to work you gotta install it by running:
@@ -19,6 +21,14 @@ and then you need to install: "gulp purge css"; this is a plugin for gulp that r
 ```bash
 npm install gulp-purgecss --save-dev
 ```
+
+In case files package.json/package-dev.json are present; the thing that needs to be done is running:
+
+```bash
+npm install
+```
+
+This way all dependencies will get fetched from the package.json file.
 
 ... Do not worry, the gupfile.js already has it included.
 
