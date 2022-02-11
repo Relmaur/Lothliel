@@ -34,7 +34,8 @@ This way all dependencies will get fetched and installed from the package.json f
 
 For you to make changes to the library without actually affecting it, you need to create a new folder (sass in this example) and a new entry file inside of it, say index.scss...
 
-Then, for it to be watched instead of the index.scss that is originally on the project files (lothliel folder), in gulpfile.js instead of lothliel, you gotta watch the sass folder you recently created. In the below code -which is the included gulpfile.js- just replace ^^lothliel^^ for ^^sass^^, like so:
+Then, for it to be watched instead of the index.scss that is originally on the project files (lothliel folder), in gulpfile.js instead of lothliel, you gotta watch the sass folder you recently created. 
+In the below code -which is the included gulpfile.js- just replace ^^lothliel^^ for ^^sass^^.
 
 ```javascript
 
@@ -43,14 +44,14 @@ const sass = require("gulp-sass")(require("sass"));
 const purgecss = require("gulp-purgecss"); // The css-purge plugin.
 
 function buildStyles() {
-return src("^^sass^^/**/*.scss")s
+return src("^^lothliel^^/**/*.scss")s
     .pipe(sass())
     .pipe(purgecss({ content: ["*.html"] })) // This is to purge the non-used css files on the output file (index.css)
     .pipe(dest("css"));
 }
 
 function watchTask() {
-    watch(["^^sass^^/**/*.scss", "*.html"], buildStyles);
+    watch(["^^lothliel^^/**/*.scss", "*.html"], buildStyles);
 }
 
 exports.default = series(buildStyles, watchTask);
